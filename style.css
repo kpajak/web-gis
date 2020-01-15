@@ -26,9 +26,8 @@ html,body{
     width: 2%;
     height: 5%;
 }*/
-.mapa{
-    background-color: yellow;
-
+#mapa{
+    background-color: white;
 }
 .info{
     background-color:#7AE7C7;
