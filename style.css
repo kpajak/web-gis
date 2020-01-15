@@ -1,0 +1,40 @@
+html,body{
+    background-color: #645244;
+    height: 100%;
+}
+.columns{
+    height:100%;
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+}
+.naglowek{
+    background-color: #795663;
+}
+.menu{
+    background-color: 6C809A;
+}
+.rows{
+    height:100%;
+    display: grid;
+    grid-template-rows: 30% 65% 5%;
+}
+.lista{
+    background-color: #75BBA7;
+}
+/*#produkt{
+    background-color: forestgreen;
+    width: 2%;
+    height: 5%;
+}*/
+.mapa{
+    background-color: yellow;
+
+}
+.info{
+    background-color:#7AE7C7;
+
+}
+.stopka{
+    background-color: bisque;
+    width: 100%;
+}
