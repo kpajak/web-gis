@@ -60,48 +60,6 @@ require([
     
         view.ui.add(sketch, "top-right");
 
-        /*mapa = document.getElementById("mapa");
-
-require([
-    "esri/Map",
-    "esri/views/MapView",
-    "esri/layers/FeatureLayer"
-    ], function(Map, MapView, FeatureLayer) {
-    
-    let map = new Map({
-      basemap: "topo-vector"
-    });
-
-    let view = new MapView({
-      container: "mapa",  
-      map: map,
-      center: [-118.80543,34.02700],
-      zoom: 13            
-    });
-
-      // Trailheads feature layer (points)
-    let trailheadsLayer = new FeatureLayer({
-      url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0"
-    });
-
-    map.add(trailheadsLayer);
-    
-    // Trails feature layer (lines)
-    let trailsLayer = new FeatureLayer({
-      url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trails/FeatureServer/0"
-    });
-
-    map.add(trailsLayer, 0);
-
-    // Parks and open spaces (polygons)
-    let parksLayer = new FeatureLayer({
-      url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/ArcGIS/rest/services/USA%20States/FeatureServer/0"
-    });
-
-    map.add(parksLayer, 0);
-
-  });
-//LINK https://github.com/rperzyna/umcsZ4/wiki/Zadanie-1*/
 });
 
 
