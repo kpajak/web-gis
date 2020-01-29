@@ -4,86 +4,104 @@ mapa3 = document.getElementById("mapa3");
 mapa4 = document.getElementById("mapa4");
 mapa5 = document.getElementById("mapa5");
 
-przycisk1 = document.getElementById("przycisk1");
-przycisk2 = document.getElementById("przycisk2");
-przycisk3 = document.getElementById("przycisk3");
-przycisk4 = document.getElementById("przycisk4");
 
+require([
+    "esri/Map",
+    "esri/views/MapView",
+    "esri/widgets/BasemapToggle",
+    "esri/widgets/BasemapGallery",
+    "esri/layers/GraphicsLayer",
+    "esri/widgets/Sketch"
+    ], function(Map, MapView, BasemapToggle, BasemapGallery, GraphicsLayer, Sketch) {
+        let graphicsLayer = new GraphicsLayer();
 
-require(["esri/Map", "esri/views/MapView"],
-    function(Map, MapView){
-        mapa1.addEventListener("click", function(){
-            let map1 = new Map({basemap:"topo"}); //słowo klucz new + nazwa modułu
-            let mapContainer = new MapView({
-                container: "mapa",  // miejsce gdzie chcemy osadzić mapę (bierzemy klasę z pliku html //
-                map: map1,  //czyli nasza zmienna z mapą bazową zdefiniowana wcześniej //
-                zoom: 12,
-                center: [22.57, 51.25]
-            })
-        })
-    }
-);
+        let map = new Map({
+            basemap: "topo-vector",
+            layers: [graphicsLayer]
+        });
 
-require(["esri/Map", "esri/views/MapView"],
-    function(Map, MapView){
-        mapa2.addEventListener("click", function(){
-            let map1 = new Map({basemap:"streets"}); //słowo klucz new + nazwa modułu
-            let mapContainer = new MapView({
-                container: "mapa",
-                map: map1,
-                zoom: 12,
-                center: [22.57, 51.25]
-            })
-        })
-    }
-);
+        let view = new MapView({
+            container: "mapa",
+            map: map,
+            center: [22.57,51.25],
+            zoom: 10
+        });
 
-require(["esri/Map", "esri/views/MapView"],
-    function(Map, MapView){
-        mapa3.addEventListener("click", function(){
-            let map1 = new Map({basemap:"satellite"}); //słowo klucz new + nazwa modułu
-            let mapContainer = new MapView({
-                container: "mapa",
-                map: map1,
-                zoom: 12,
-                center: [22.57, 51.25]
-            })
-        })
-    }
-);
+        let basemapToggle = new BasemapToggle({
+            view: view,
+            nextBasemap: "satellite"
+        });
 
-require(["esri/Map", "esri/views/MapView"],
-    function(Map, MapView){
-        mapa4.addEventListener("click", function(){
-            let map1 = new Map({basemap:"streets"}); //słowo klucz new + nazwa modułu
-            let mapContainer = new MapView({
-                container: "mapa",
-                map: map1,
-                zoom: 12,
-                center: [22.57, 51.25]
-            })
-        })
-    }
-);
+        view.ui.add(basemapToggle, "bottom-right");
 
-require(["esri/Map", "esri/views/MapView", "esri/WebMap"],
-    function(Map, MapView, WebMap, webMercatorUtils){
-        mapa5.addEventListener("click", function(){
-            let map1 = new WebMap({
-                portalItem:{
-                    id: "ef139263371049d99aec9894f1c09258"
-                }
-            })
-            let mapContainer = new MapView({
-                container: "mapa",
-                map: map1, 
-                zoom:12,
-                center: [22.57, 51.25]
-            }); 
-        })
-    }
-);
+        let basemapGallery = new BasemapGallery({
+            view: view,
+            source: {
+              portal: {
+                url: "https://www.arcgis.com",
+                useVectorBasemaps: true  // Load vector tile basemaps
+              }
+            }
+        });
 
+        view.ui.add(basemapGallery, "top-right");
 
+        view = new MapView({
+            container: "mapa",
+            map: map,
+            center: [22.57,51.25],
+            zoom: 10
+        });
+    
+        let sketch = new Sketch({
+            view: view,
+            layer: graphicsLayer
+        });
+    
+        view.ui.add(sketch, "top-right");
+
+        /*mapa = document.getElementById("mapa");
+
+require([
+    "esri/Map",
+    "esri/views/MapView",
+    "esri/layers/FeatureLayer"
+    ], function(Map, MapView, FeatureLayer) {
+    
+    let map = new Map({
+      basemap: "topo-vector"
+    });
+
+    let view = new MapView({
+      container: "mapa",  
+      map: map,
+      center: [-118.80543,34.02700],
+      zoom: 13            
+    });
+
+      // Trailheads feature layer (points)
+    let trailheadsLayer = new FeatureLayer({
+      url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0"
+    });
+
+    map.add(trailheadsLayer);
+    
+    // Trails feature layer (lines)
+    let trailsLayer = new FeatureLayer({
+      url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trails/FeatureServer/0"
+    });
+
+    map.add(trailsLayer, 0);
+
+    // Parks and open spaces (polygons)
+    let parksLayer = new FeatureLayer({
+      url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/ArcGIS/rest/services/USA%20States/FeatureServer/0"
+    });
+
+    map.add(parksLayer, 0);
+
+  });
+//LINK https://github.com/rperzyna/umcsZ4/wiki/Zadanie-1*/
+});
 
 

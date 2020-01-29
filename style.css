@@ -41,47 +41,47 @@ ul li{
 }
 #mapa1{
     border-radius:8px;
-    -webkit-transition-duration: 0.4s; /* Safari */
+    -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
 #mapa1:hover {
-    background-color: #757083; /* Green */
+    background-color: #757083;
     color: #f1e4e8;
 }
 #mapa2{
     border-radius:8px;
-    -webkit-transition-duration: 0.4s; /* Safari */
+    -webkit-transition-duration: 0.4s; 
     transition-duration: 0.4s;
 }
 #mapa2:hover {
-    background-color: #757083; /* Green */
+    background-color: #757083;
     color: #f1e4e8;
 }
 #mapa3{
     border-radius:8px;
-    -webkit-transition-duration: 0.4s; /* Safari */
+    -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
 #mapa3:hover {
-    background-color: #757083; /* Green */
+    background-color: #757083;
     color: #f1e4e8;
 }
 #mapa4{
     border-radius:8px;
-    -webkit-transition-duration: 0.4s; /* Safari */
+    -webkit-transition-duration: 0.4s; 
     transition-duration: 0.4s;
 }
 #mapa4:hover {
-    background-color: #757083; /* Green */
+    background-color: #757083;
     color: #f1e4e8;
 }
 #mapa5{
     border-radius:8px;
-    -webkit-transition-duration: 0.4s; /* Safari */
+    -webkit-transition-duration: 0.4s; 
     transition-duration: 0.4s;
 }
 #mapa5:hover {
-    background-color: #757083; /* Green */
+    background-color: #757083; 
     color: #f1e4e8;
 }
 footer{
